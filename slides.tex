@@ -8,6 +8,7 @@
     numberstyle=\scriptsize,
     frame=leftline,
     basicstyle=\ttfamily}
+\setbeamercolor{local structure}{fg=black}
 
 % TODO
 %  * use \begin{frame}[fragile] with code examples
@@ -26,16 +27,269 @@
 
 \end{frame}
 
-%\begin{frame}[fragile]
+\begin{frame}[fragile]
 
-%    {\LARGE Add PYTHONSTARTUP to .bashrc}\\
+    \begin{enumerate}
+        \item Configuration, Init
+        \item Basic Commands
+        \item Stash
+        \item Branches
+        \item Remotes
+        \item Workflows
+        \item Refactoring
+    \end{enumerate}
 
-%    \begin{verbatim}
-%echo export PYTHONSTARTUP=~/.pythonrc.py >> ~/.bashrc
-%source ~/.bashrc
-%    \end{verbatim}
+\end{frame}
 
-%\end{frame}
+
+\begin{frame}[fragile]
+
+    {\LARGE 1. Configuration, Init}\\
+
+    \begin{verbatim}
+git init
+git config --global user.name "Ondrej Sika"
+git config --global user.email "ondrej@ondrejsika.com"
+    \end{verbatim}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+
+    {\LARGE git config}\\
+
+    \begin{verbatim}
+git config --local ...
+git config --global ...
+git config --system ...
+    \end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+    {\LARGE .gitignore}\\
+
+    \begin{verbatim}
+build/*
+*.pyc
+*.pyo
+*.swp
+!.keep
+    \end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+    {\LARGE 2. Basic Commands}\\
+
+    \begin{verbatim}
+git status
+git add
+git commit
+git log
+    \end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+    {\LARGE git add}\\
+
+    \begin{verbatim}
+git add README.md
+git add .
+git add -A
+    \end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+    {\LARGE git commit}\\
+
+    \begin{verbatim}
+git commit
+git commit -m "Add README"
+git commit -a
+git commit -am "Add README"
+    \end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+    {\LARGE 3. Stash}\\
+
+    \begin{verbatim}
+git stash
+git stash apply
+git stash pop
+    \end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+    {\LARGE 4. Branches}\\
+
+    \begin{verbatim}
+git branch
+git checkout
+    \end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+    {\LARGE git branch}\\
+
+    \begin{verbatim}
+git branch
+git branch some_branch master
+git branch -d some_branch
+git branch -D some_branch
+    \end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+    {\LARGE git checkout}\\
+
+    \begin{verbatim}
+git checkout some_branch
+git checkout -b some_branch
+    \end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+    {\LARGE 5. Remotes}\\
+
+    \begin{verbatim}
+git clone
+git remote
+git push
+git fetch
+git pull
+    \end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+    {\LARGE git clone}\\
+
+    \begin{verbatim}
+git clone git@github.com:skoleni-git/demo.git
+git clone https://github.com/skoleni-git/demo.git
+git clone /home/git/skoleni-git/demo.git
+    \end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+    {\LARGE git remote}\\
+
+    \begin{verbatim}
+git remote add origin git@github.com:skoleni-git/demo.git
+git remote rm origin
+git remote rename origin backup
+    \end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+    {\LARGE git push}\\
+
+    \begin{verbatim}
+git push origin master
+git push origin master:ondrejsika
+git push origin :ondrejsika
+git push origin master -u
+git push
+    \end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+    {\LARGE git fetch}\\
+
+    \begin{verbatim}
+git fetch origin
+git fetch --all
+    \end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+    {\LARGE git pull}\\
+
+    \begin{verbatim}
+git pull origin master
+git pull
+git pull --ff-only
+    \end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+    {\LARGE 6. Workflows}\\
+
+    \begin{enumerate}
+        \item Rebase
+        \item Merge
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+    {\LARGE Merge}\\
+
+    \begin{verbatim}
+git merge some_branch
+git add .
+git commit
+git merge --abort
+    \end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+    {\LARGE Rebase}\\
+
+    \begin{verbatim}
+git rebase some_branch
+git add .
+git rebase --abort
+    \end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+    {\LARGE 7. Refactoring}\\
+
+    \begin{verbatim}
+git reset HEAD~1
+git reset --hard HEAD~1
+git commit --amend
+git commit --am
+git rebase -i
+    \end{verbatim}
+
+\end{frame}
 
 \begin{frame}
 
